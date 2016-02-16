@@ -1,6 +1,6 @@
 var through2 = require('through2');
 
-function createStream(maxInFlight, workerFunc) {
+function createStream(maxInFlight, workerFunc, endFunc) {
 
   var resumeQueue = [];
   var queueDepth = 0;
@@ -46,6 +46,11 @@ function createStream(maxInFlight, workerFunc) {
     var interval = setInterval(function () {
       if (queueDepth === 0) {
         clearInterval(interval);
+
+        // call the end handler if one was provided
+        if (endFunc && typeof endFunc === 'function') {
+          endFunc();
+        }
         next();
       }
     }, 100);

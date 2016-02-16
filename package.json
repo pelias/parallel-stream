@@ -1,6 +1,6 @@
 {
   "name": "pelias-parallel-stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Transform stream that allows async function to be called in parallel while still consuming results into a syncronous stream'",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "parallel",
     "async"
   ],
-  "author": "Diana Shkolnikov <diana@mapzen.com>",
+  "author": "Mapzen",
   "license": "MIT",
   "devDependencies": {
     "event-stream": "^3.3.2",

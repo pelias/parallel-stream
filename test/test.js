@@ -79,5 +79,26 @@ tape('tests', function(test) {
     });
 
     stream.write(input);
-  })
+  });
+
+  test.test('end-handler', function (t) {
+    t.plan(1);
+
+    var input    = [ 'one', 'two'];
+    var handled = 0;
+
+    var stream = parallelStream( 1,
+      function (doc, enc, next) {
+        handled++;
+        next(null, doc);
+      },
+      function () {
+        t.equal(handled, 2, 'end handler called after processing');
+      }
+    );
+
+    test_stream(input, stream, function(err, actual) {
+      t.end();
+    });
+  });
 });

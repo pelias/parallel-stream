@@ -15,15 +15,21 @@ var parallelStream = require('pelias-parallel-stream');
 
 var maxInFlight = 2;
 
-var seeYouLaterStream = parallelStream(maxInFlight, function (doc, enc, next) {
-  console.log('I see you, ' + doc.name);
-
-  setTimeout(function () {
-    doc.msg = 'Oh hey there, ' + doc.name;
-    next(null, doc);
-  }, 1000);
-});
+var seeYouLaterStream = parallelStream(maxInFlight, 
+  function (doc, enc, next) {
+    console.log('I see you, ' + doc.name);
+    
+    setTimeout(function () {
+      doc.msg = 'Oh hey there, ' + doc.name;
+      next(null, doc);
+    }, 1000);
+  },
+  function () {
+     console.log('Ooh, looks like the stream is finished');
+  });
 ```
+
+> NOTE: the end function is optional
 
 Once you've made your new parallel stream, you can use it just like you would any normal transform stream.
 Just throw it into a `.pipe()` call, like so.

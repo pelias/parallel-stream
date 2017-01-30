@@ -1,5 +1,7 @@
 # pelias-parallel-stream
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/parallel-stream.svg)](https://greenkeeper.io/)
+
 Sometimes you want to call an async function inside a transform stream and be able to
 take full advantage of the magical asynchronicity of node.js.
  

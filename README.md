@@ -1,7 +1,5 @@
 # pelias-parallel-stream
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/parallel-stream.svg)](https://greenkeeper.io/)
-
 Sometimes you want to call an async function inside a transform stream and be able to
 take full advantage of the magical asynchronicity of node.js.
  
@@ -113,3 +111,10 @@ sys	    0m0.022s
 
 You can see that all the requests were sent out at once, and all the responses came in shortly thereafter. 
 Note how quickly it all happened, too. 
+
+### Versioning
+
+We rely on semantic-release and Greenkeeper to maintain our module and dependency versions.
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/parallel-stream.svg)](https://greenkeeper.io/)
+

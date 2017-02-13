@@ -17,7 +17,7 @@
   "devDependencies": {
     "event-stream": "^3.3.2",
     "stream-array": "^1.1.1",
-    "stream-sink": "^1.2.0",
+    "stream-sink": "^2.0.0",
     "tap-dot": "^1.0.1",
     "tape": "^4.4.0",
     "through2-sink": "^1.0.0"

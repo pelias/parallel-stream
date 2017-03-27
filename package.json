@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/tape test/test.js | tap-dot",
-    "example": "node example/simple.js"
+    "example": "node example/simple.js",
+    "check-dependencies": "node_modules/.bin/npm-check --production"
   },
   "keywords": [
     "stream",
@@ -24,5 +25,8 @@
   },
   "dependencies": {
     "through2": "^2.0.0"
-  }
+  },
+  "pre-commit": [
+    "check-dependencies"
+  ]
 }

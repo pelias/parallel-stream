@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/tape test/test.js | tap-dot",
+    "travis": "npm run check-dependencies && npm test",
     "example": "node example/simple.js",
     "check-dependencies": "node_modules/.bin/npm-check --production"
   },
@@ -17,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "event-stream": "^3.3.2",
+    "npm-check": "^5.4.0",
     "stream-array": "^1.1.1",
     "stream-sink": "^2.0.0",
     "tap-dot": "^1.0.1",

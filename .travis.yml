@@ -1,14 +1,26 @@
 sudo: false
 language: node_js
 node_js:
-  - 0.12
   - 4
   - 6
+notifications:
+  email: false
 matrix:
   fast_finish: true
-  allow_failures:
-cache:
-  directories:
-    - node_modules
+env:
+  global:
+    - CXX=g++-4.8
+script: npm run travis
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+before_install:
+  - npm i -g npm@^3.0.0
 before_script:
   - npm prune
+after_success:
+ - npm run semantic-release
+ 

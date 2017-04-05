@@ -20,6 +20,7 @@ function createStream(maxInFlight, workerFunc, endFunc) {
         return next(err);
       }
 
+      // don't pass `undefined` when `next(null)` is called
       if (docToPush !== undefined) {
         scopedPush(docToPush);
       }

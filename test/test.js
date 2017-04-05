@@ -24,6 +24,25 @@ tape('tests', function(test) {
     });
   });
 
+  test.test('do not pass along undefined values', function(t) {
+    var input = [ true, false, true ];
+    var expected = [ true, true ];
+
+    var stream = parallelStream(1, function (val, enc, next) {
+      if (val) {
+        next(null, val);
+      } else {
+        next(null);
+      }
+    });
+
+    test_stream(input, stream, function(err, actual) {
+      t.deepEqual(actual, expected, 'should be no undefineds');
+      t.end();
+    });
+    
+  });
+
   test.test('simple processing', function(t) {
     var input    = [ 'one',        'two',        'three' ];
     var expected = [ 'twenty-one', 'twenty-two', 'twenty-three' ];

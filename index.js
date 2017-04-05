@@ -20,7 +20,9 @@ function createStream(maxInFlight, workerFunc, endFunc) {
         return next(err);
       }
 
-      scopedPush(docToPush);
+      if (docToPush !== undefined) {
+        scopedPush(docToPush);
+      }
 
       // check to see if we're currently blocking the stream and waiting to call `next()`
       // until a slot opens up in the queue. Since at this point a space is free, call `next()`

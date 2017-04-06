@@ -1,13 +1,16 @@
 {
   "name": "pelias-parallel-stream",
-  "version": "0.0.2",
+  "version": "0.0.0-semantic-release",
   "description": "Transform stream that allows async function to be called in parallel while still consuming results into a syncronous stream'",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/tape test/test.js | tap-dot",
+    "lint": "jshint .",
     "travis": "npm run check-dependencies && npm test",
     "example": "node example/simple.js",
-    "check-dependencies": "node_modules/.bin/npm-check --production"
+    "check-dependencies": "node_modules/.bin/npm-check --production",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "validate": "npm ls"
   },
   "keywords": [
     "stream",
@@ -16,6 +19,13 @@
   ],
   "author": "Mapzen",
   "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelias/parallel-stream.git"
+  },
   "devDependencies": {
     "event-stream": "^3.3.2",
     "npm-check": "^5.4.0",
@@ -29,6 +39,9 @@
     "through2": "^2.0.0"
   },
   "pre-commit": [
+    "lint",
+    "validate",
+    "test",
     "check-dependencies"
   ]
 }

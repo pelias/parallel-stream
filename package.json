@@ -1,6 +1,6 @@
 {
   "name": "pelias-parallel-stream",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0-development",
   "description": "Transform stream that allows async function to be called in parallel while still consuming results into a syncronous stream'",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,8 @@
     "stream-sink": "^2.0.0",
     "tap-dot": "^1.0.1",
     "tape": "^4.4.0",
-    "through2-sink": "^1.0.0"
+    "through2-sink": "^1.0.0",
+    "semantic-release": "^6.3.2"
   },
   "dependencies": {
     "through2": "^2.0.0"

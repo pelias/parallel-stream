@@ -1,6 +1,6 @@
 {
   "name": "pelias-parallel-stream",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantic-release",
   "description": "Transform stream that allows async function to be called in parallel while still consuming results into a syncronous stream'",
   "main": "index.js",
   "scripts": {

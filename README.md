@@ -2,11 +2,10 @@
 
 Sometimes you want to call an async function inside a transform stream and be able to
 take full advantage of the magical asynchronicity of node.js.
- 
-In order to do this, we must decouple the `this.push(data)` from the `next()`.
- 
-This module allows you to do that in a clean and simple way. See below.
 
+In order to do this, we must decouple the `this.push(data)` from the `next()`.
+
+This module allows you to do that in a clean and simple way. See below.
 
 ## usage
 
@@ -15,10 +14,10 @@ var parallelStream = require('pelias-parallel-stream');
 
 var maxInFlight = 2;
 
-var seeYouLaterStream = parallelStream(maxInFlight, 
+var seeYouLaterStream = parallelStream(maxInFlight,
   function (doc, enc, next) {
     console.log('I see you, ' + doc.name);
-    
+
     setTimeout(function () {
       doc.msg = 'Oh hey there, ' + doc.name;
       next(null, doc);
@@ -90,7 +89,7 @@ handling and then pause to wait for one of them to return and make room for the 
 As soon as we've seen one of the first 2 requests come back (`Oh hey there again, Diana`),
 another incoming requests comes in (`I see you, Stephen`). And let's note that the amount of time it took to get through
 all the data has been cut in half, because... __asynchronous__!
-  
+
 Finally, let's run it with `maxInFlight` set to `200`, which is just a number larger than the length of the input data array.
 
 ```bash
@@ -109,12 +108,11 @@ user	0m0.121s
 sys	    0m0.022s
 ```
 
-You can see that all the requests were sent out at once, and all the responses came in shortly thereafter. 
-Note how quickly it all happened, too. 
+You can see that all the requests were sent out at once, and all the responses came in shortly thereafter.
+Note how quickly it all happened, too.
 
 ### Versioning
 
 We rely on semantic-release and Greenkeeper to maintain our module and dependency versions.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/pelias/parallel-stream.svg)](https://greenkeeper.io/)
-

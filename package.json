@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "event-stream": "^3.3.2",
-    "npm-check": "^5.4.0",
+    "npm-check": "git://github.com/orangejulius/npm-check.git#disable-update-check",
     "stream-array": "^1.1.1",
     "stream-sink": "^2.0.0",
     "tap-dot": "^1.0.1",

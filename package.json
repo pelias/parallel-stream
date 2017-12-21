@@ -34,7 +34,7 @@
     "tap-dot": "^1.0.1",
     "tape": "^4.4.0",
     "through2-sink": "^1.0.0",
-    "semantic-release": "^8.0.3"
+    "semantic-release": "^11.0.2"
   },
   "dependencies": {
     "through2": "^2.0.0"

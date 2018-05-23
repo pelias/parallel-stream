@@ -1,5 +1,7 @@
 # pelias-parallel-stream
 
+**DEPRECATED:** Use [paralell-transform](https://www.npmjs.com/package/parallel-transform) which does exactly the same thing with an almost identical interface.
+
 Sometimes you want to call an async function inside a transform stream and be able to
 take full advantage of the magical asynchronicity of node.js.
 
